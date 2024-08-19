@@ -1,0 +1,49 @@
+.center-absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.center-flex {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    flex-direction: column;
+}
+
+body{
+    background-color: #e4fff6;
+}
+.login-div{
+    background-color: #ddc2ff;
+    border-radius: 3px;
+}
+
+.tabs {
+    width: 100%;
+}
+
+.tab-headers {
+    display: flex;
+    margin-bottom: 2px;
+}
+
+.tab-header {
+    padding: 8px 16px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid transparent;
+}
+
+.tab-header.active {
+    border-bottom: 2px solid #007bff;
+    font-weight: bold;
+}
+
+.tab-content {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}

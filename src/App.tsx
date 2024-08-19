@@ -1,12 +1,31 @@
 import { useState } from 'react'
+import {
+    createBrowserRouter,
+    RouterProvider,
+} from "react-router-dom";
+import {HomePage} from "./Pages/HomePage.tsx";
+import {RootPage} from "./Pages/RootPage.tsx";
+import {LoginPage} from "./Pages/LoginPage.tsx";
+import "./main.css"
 
 function App() {
-  const [count, setCount] = useState(0)
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <HomePage />,
+        },{
+            path: "/root",
+            element: <RootPage />,
+        },{
+            path: "/login",
+            element: <LoginPage/>,
+        },
+    ]);
 
-  return (
+    return (
     <>
       <div>
-          <h1>Balls</h1>
+          <RouterProvider router={router}></RouterProvider>
       </div>
     </>
   )
