@@ -12,7 +12,7 @@ export function Navbar() {
                 </div>
                 <div className="flex-1 text-center">Search(todo)</div>
                 <div className={"flex flex-wrap flex-row-reverse flex-1 h-10 w-1/3"}>
-                    <NavbarItem title={"Profile"} path={"/root"}></NavbarItem>
+                    <NavbarItem title={"Profile"} path={"/profile"}></NavbarItem>
                 </div>
             </div>
 
