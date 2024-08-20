@@ -22,7 +22,7 @@ function App() {
 
     return (
     <>
-      <div className={"bg-blue-400 h-screen w-screen"}>
+      <div className={"bg-gray-200 h-full w-full"}>
           <RouterProvider router={router}></RouterProvider>
       </div>
     </>
