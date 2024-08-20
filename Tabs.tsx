@@ -13,15 +13,13 @@ type TabHeadersProps = {
 
 const TabHeaders = ({ activeTab, setActiveTab, children }: TabHeadersProps) => {
     return (
-        <div className="tab-headers">
+        <div className="flex w-full">
             {React.Children.map(children, (child, index) => {
                 if (React.isValidElement(child)) {
                     const isActive = index === activeTab;
+                    const className = isActive ? "flex-1 font-bold" : "flex-1"
                     return (
-                        <button
-                            className={isActive ? 'tab-header active' : 'tab-header'}
-                            onClick={() => setActiveTab(index)}
-                        >
+                        <button className={"flex-1"} onClick={() => setActiveTab(index)}>
                             {child.props.title}
                         </button>
                     );
@@ -36,8 +34,8 @@ const Tabs = ({ children, initialActiveTab = 0 }: TabsProps) => {
     const [activeTab, setActiveTab] = useState(initialActiveTab);
 
     return (
-        <div className="tabs">
-            <TabHeaders activeTab={activeTab} setActiveTab={setActiveTab}>
+        <div className="flex-col">
+            <TabHeaders activeTab={activeTab as number} setActiveTab={setActiveTab}>
                 {children}
             </TabHeaders>
             <div className="tab-content">

@@ -1,37 +1,23 @@
 import Tabs from "../../Tabs.tsx";
 import Tab from "../Tab.tsx";
-
+import {SignupTab} from "./SignupTab.tsx";
+import {LoginTab} from "./LoginTab.tsx";
 export function LoginPage(){
     return(
         <>
-            <h1 className={"class"}>Login Page</h1>
-            <div className={"center-absolute login-div"}>
-                <div className={"center-flex"}>
-                    <h1>test</h1>
+            <div className={"h-screen flex items-center justify-center"}>
+                <div className={"flex flex-col text-center bg-blue-500 rounded"}>
                     <Tabs>
                         <Tab title="Sign Up">
-                            <div className={"center-flex"}>
-                                <div>
-                                    <label>Email: </label>
-                                    <input placeholder={"Enter Email:"}/>
-                                    <svg></svg>
-                                </div>
-
-                                <div>
-                                    <label>Password: </label>
-                                    <input placeholder={"Enter Password:"}/>
-                                </div>
-                            </div>
-
+                            <SignupTab></SignupTab>
                         </Tab>
                         <Tab title="Login">
-                            <p>Content of Tab 2</p>
+                            <LoginTab></LoginTab>
                         </Tab>
                     </Tabs>
                 </div>
-
-
             </div>
+
         </>
     )
 }

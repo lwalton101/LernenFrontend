@@ -6,8 +6,6 @@ import {
 import {HomePage} from "./Pages/HomePage.tsx";
 import {RootPage} from "./Pages/RootPage.tsx";
 import {LoginPage} from "./Pages/LoginPage.tsx";
-import "./main.css"
-
 function App() {
     const router = createBrowserRouter([
         {
@@ -24,7 +22,7 @@ function App() {
 
     return (
     <>
-      <div>
+      <div className={"bg-blue-400 h-screen w-screen"}>
           <RouterProvider router={router}></RouterProvider>
       </div>
     </>

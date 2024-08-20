@@ -4,25 +4,23 @@ import axiosInstance from "../axiosInstance.ts";
 import {AxiosError} from "axios";
 import {useNavigate} from "react-router-dom";
 
-export function SignupTab(){
+export function LoginTab(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [username, setUsername] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
     const navigator = useNavigate();
 
-    async function onSignupButtonClick() {
+    async function onLoginButtonClicked() {
         try {
-            const response = await axiosInstance.post('/auth/signup', {
-                username,
+            const response = await axiosInstance.post('/auth/login', {
                 password,
                 email
             }, {
 
             });
 
-            console.log('Signup successful:', response.data);
+            console.log('Login successful:', response.data);
         } catch (e: AxiosError) {
             setErrorMessage(e.response.data.message);
         }
@@ -36,11 +34,7 @@ export function SignupTab(){
                 <input placeholder={"Enter Email:"} onChange={(e) => setEmail(e.target.value)}/>
             </div>
 
-            <div className={"center-flex-row form-input"}>
-                <label>Username: </label>
-                <input placeholder={"Enter Username:"} onChange={(e) => setUsername(e.target.value)}/>
-                <img src={info} width={25} height={25} alt={"info button"}></img>
-            </div>
+
 
             <div className={"center-flex-row form-input"}>
                 <label>Password: </label>
@@ -48,7 +42,7 @@ export function SignupTab(){
                 <img src={info} width={25} height={25} alt={"info button"}></img>
             </div>
 
-            <button onClick={onSignupButtonClick}>Sign Up</button>
+            <button onClick={onLoginButtonClicked}>Login</button>
         </div>
     )
 }
