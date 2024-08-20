@@ -1,5 +1,6 @@
 import {useEffect} from "react";
 import axiosInstance from "../axiosInstance.ts";
+import {Navbar} from "../Navbar.tsx";
 
 export function RootPage(){
     useEffect(() => {
@@ -7,7 +8,9 @@ export function RootPage(){
     }, []);
     return(
         <>
-            <h1>Root</h1>
+            <div className={"flex flex-col h-screen"}>
+                <Navbar></Navbar>
+            </div>
         </>
     )
 }
