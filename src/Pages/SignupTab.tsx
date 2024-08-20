@@ -33,24 +33,35 @@ export function SignupTab(){
     }
 
     return (
-        <div className={"center-flex-column p-2"}>
-            <div>{errorMessage}</div>
-            <div className={"center-flex-row flex p-2 justify-center items-center"}>
-                <label className={"mr-2 w-24 text-right"}>Email: </label>
-                <input className={"rounded p-2 flex-1"} placeholder={"Enter Email"} onChange={(e) => setEmail(e.target.value)}/>
+        <div className={"flex flex-col justify-center items-center h-full w-full"}>
+            <div className={"self-start w-full"}>
+                {errorMessage != "" ? (<div className={"bg-red-400 p-3 rounded-2xl"}>{errorMessage}</div>) : (<></>)}
+
+                <div className={"center-flex-row flex p-2 justify-center items-center"}>
+                    <label className={"mr-2 w-24 text-right"}>Email: </label>
+                    <input className={"rounded p-2"} placeholder={"Enter Email"}
+                           onChange={(e) => setEmail(e.target.value)}/>
+                </div>
+
+                <div className={"center-flex-row flex p-2 justify-center items-center"}>
+                    <label className={"mr-2 w-24 text-right"}>Username: </label>
+                    <input className={"rounded p-2"} placeholder={"Enter Username"}
+                           onChange={(e) => setUsername(e.target.value)}/>
+                </div>
+
+                <div className={"center-flex-row flex p-2 justify-center items-center"}>
+                    <label className={"mr-2 w-24 text-right"}>Password: </label>
+                    <input type={"password"} className={"rounded p-2"} placeholder={"Enter Password"}
+                           onChange={(e) => setPassword(e.target.value)}/>
+                </div>
             </div>
 
-            <div className={"center-flex-row flex p-2 justify-center items-center"}>
-                <label className={"mr-2 w-24 text-right"}>Username: </label>
-                <input className={"rounded p-2 flex-1"} placeholder={"Enter Username"} onChange={(e) => setUsername(e.target.value)}/>
-            </div>
-
-            <div className={"center-flex-row flex p-2 justify-center items-center"}>
-                <label className={"mr-2 w-24 text-right"}>Password: </label>
-                <input type={"password"} className={"rounded p-2 flex-1"} placeholder={"Enter Password"} onChange={(e) => setPassword(e.target.value)}/>
-            </div>
-
-            <button className={"p-3 bg-pink-400 rounded-full mt-4"} onClick={onSignupButtonClick}>Sign Up</button>
+            <button
+                className={"self-end mx-auto p-3 bg-pink-400 rounded-full mt-4 w-1/3"}
+                onClick={onSignupButtonClick}
+            >
+                Sign Up
+            </button>
         </div>
     )
 }
