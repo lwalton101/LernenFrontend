@@ -1,8 +1,6 @@
 // src/axiosInstance.ts
 
 import axios, { AxiosInstance } from 'axios';
-import {useNavigate} from "react-router-dom";
-import {useEffect} from "react";
 
 // Define an Axios instance with default configurations
 const axiosInstance: AxiosInstance = axios.create({

@@ -1,8 +1,6 @@
-import info from "../assets/info.svg";
 import {useState} from "react";
 import axiosInstance from "../axiosInstance.ts";
 import {AxiosError} from "axios";
-import {useNavigate} from "react-router-dom";
 
 export function SignupTab(){
     const [email, setEmail] = useState("");
@@ -10,11 +8,9 @@ export function SignupTab(){
     const [username, setUsername] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
-    const navigator = useNavigate();
-
     async function onSignupButtonClick() {
         try {
-            const signupResponse = await axiosInstance.post('/auth/signup', {
+            await axiosInstance.post('/auth/signup', {
                 username,
                 password,
                 email

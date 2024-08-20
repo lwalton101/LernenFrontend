@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {
     createBrowserRouter,
     RouterProvider,
@@ -6,7 +5,7 @@ import {
 import {HomePage} from "./Pages/HomePage.tsx";
 import {RootPage} from "./Pages/RootPage.tsx";
 import {LoginPage} from "./Pages/LoginPage.tsx";
-import {useAxiosInterceptor} from "./axiosInstance.ts";
+
 function App() {
 
     const router = createBrowserRouter([

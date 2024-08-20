@@ -1,4 +1,3 @@
-import info from "../assets/info.svg";
 import {useState} from "react";
 import axiosInstance from "../axiosInstance.ts";
 import {AxiosError} from "axios";
