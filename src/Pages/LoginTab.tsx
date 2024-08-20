@@ -44,7 +44,11 @@ export function LoginTab(){
                 <input type={"password"} className={"rounded p-2 flex-1"} placeholder={"Enter Password"} onChange={(e) => setPassword(e.target.value)}/>
             </div>
 
-            <button className={"p-3 bg-pink-400 rounded-full mt-4"} onClick={onLoginButtonClicked}>Login</button>
+            <button
+                className={"self-end mx-auto p-3 bg-primary_dark rounded-full mt-2 w-1/3 text-white"}
+                onClick={onLoginButtonClicked}>
+                Login
+            </button>
         </div>
     )
 }
