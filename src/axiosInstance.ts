@@ -4,7 +4,7 @@ import axios, { AxiosInstance } from 'axios';
 
 // Define an Axios instance with default configurations
 const axiosInstance: AxiosInstance = axios.create({
-    baseURL: process.env.BASE_URL,
+    baseURL: "https://lernenapi.biggarf.com",
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json',
