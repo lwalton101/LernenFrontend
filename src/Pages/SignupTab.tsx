@@ -14,15 +14,18 @@ export function SignupTab(){
 
     async function onSignupButtonClick() {
         try {
-            const response = await axiosInstance.post('/auth/signup', {
+            const signupResponse = await axiosInstance.post('/auth/signup', {
                 username,
                 password,
                 email
-            }, {
+            }, {});
 
-            });
+            const loginResponse = await axiosInstance.post('/auth/login', {
+                password,
+                email
+            }, {});
 
-            console.log('Signup successful:', response.data);
+            localStorage.setItem("token", loginResponse.data.token)
         } catch (e: AxiosError) {
             setErrorMessage(e.response.data.message);
         }
@@ -50,3 +53,4 @@ export function SignupTab(){
         </div>
     )
 }
+

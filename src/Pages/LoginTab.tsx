@@ -20,7 +20,8 @@ export function LoginTab(){
 
             });
 
-            console.log('Login successful:', response.data);
+            localStorage.setItem("token", response.data.token);
+            navigator("/root");
         } catch (e: AxiosError) {
             setErrorMessage(e.response.data.message);
         }
