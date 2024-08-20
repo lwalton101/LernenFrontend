@@ -57,7 +57,7 @@ export function SignupTab(){
             </div>
 
             <button
-                className={"self-end mx-auto p-3 bg-pink-400 rounded-full mt-4 w-1/3"}
+                className={"self-end mx-auto p-3 bg-primary_dark rounded-full mt-2 w-1/3 text-white"}
                 onClick={onSignupButtonClick}
             >
                 Sign Up
