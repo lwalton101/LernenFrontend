@@ -22,8 +22,11 @@ export function SignupTab(){
             }, {});
 
             localStorage.setItem("token", loginResponse.data.token)
-        } catch (e: AxiosError) {
-            setErrorMessage(e.response.data.message);
+        } catch (err: unknown) {
+            if(err instanceof AxiosError){
+                setErrorMessage(err.response.data.message);
+            }
+
         }
     }
 

@@ -21,8 +21,10 @@ export function LoginTab(){
 
             localStorage.setItem("token", response.data.token);
             navigator("/root");
-        } catch (e: AxiosError) {
-            setErrorMessage(e.response.data.message);
+        } catch (err: unknown) {
+            if(err instanceof AxiosError){
+                setErrorMessage(err.response.data.message);
+            }
         }
     }
 
