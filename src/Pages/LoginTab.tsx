@@ -33,7 +33,7 @@ export function LoginTab(){
 
     return (
         <div className={"center-flex-column p-2"}>
-            <div>{errorMessage}</div>
+            <div>{errorMessage != "" ? (<div className={"bg-red-400 p-3 rounded-2xl mt-2"}>{errorMessage}</div>) : (<></>)}</div>
             <div className={"center-flex-row flex p-2 justify-center items-center"}>
                 <label className={"mr-2 w-24 text-right "}>Email: </label>
                 <input className={"rounded p-2 flex-1"} placeholder={"Enter Email"} onChange={(e) => setEmail(e.target.value)}/>

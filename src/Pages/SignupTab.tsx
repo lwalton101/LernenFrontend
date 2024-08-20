@@ -35,7 +35,7 @@ export function SignupTab(){
     return (
         <div className={"flex flex-col justify-center items-center h-full w-full"}>
             <div className={"self-start w-full"}>
-                {errorMessage != "" ? (<div className={"bg-red-400 p-3 rounded-2xl"}>{errorMessage}</div>) : (<></>)}
+                {errorMessage != "" ? (<div className={"bg-red-400 p-3 rounded-2xl mt-2"}>{errorMessage}</div>) : (<></>)}
 
                 <div className={"center-flex-row flex p-2 justify-center items-center"}>
                     <label className={"mr-2 w-24 text-right"}>Email: </label>
