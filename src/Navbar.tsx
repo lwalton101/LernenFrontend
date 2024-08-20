@@ -6,7 +6,7 @@ export function Navbar() {
             <div className="flex justify-between items-center bg-primary">
                 <div className={"flex flex-wrap flex-1 h-10 w-1/3 items-center"}>
                     <NavbarItem title={"Home"} path={"/root"}></NavbarItem>
-                    <NavbarItem title={"Create"} path={"/create"}></NavbarItem>
+                    <NavbarItem title={"Login"} path={"/login"}></NavbarItem>
                     <NavbarItem title={"Create"} path={"/create"}></NavbarItem>
                     <NavbarItem title={"Create"} path={"/create"}></NavbarItem>
                 </div>
