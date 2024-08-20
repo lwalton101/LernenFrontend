@@ -23,6 +23,9 @@ export function LoginTab(){
             navigator("/root");
         } catch (err: unknown) {
             if(err instanceof AxiosError){
+                if(!err.response){
+                    throw err;
+                }
                 setErrorMessage(err.response.data.message);
             }
         }
