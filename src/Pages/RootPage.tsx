@@ -1,5 +1,3 @@
-import {useEffect, useState} from "react";
-import axiosInstance from "../axiosInstance.ts";
 import {Navbar} from "../Navbar.tsx";
 import {useUser} from "../context/UserContext.tsx";
 
