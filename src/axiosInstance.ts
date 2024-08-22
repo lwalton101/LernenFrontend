@@ -16,7 +16,7 @@ const axiosInstance: AxiosInstance = axios.create({
 axiosInstance.interceptors.response.use(
     response => response,
     error => {
-        if (error.response && error.response.status === 401 && window.location.href !== '/login') {
+        if (error.response && error.response.status === 401 && window.location.href.split("/")[3] !== 'login') {
             // Redirect to the login page
             window.location.href = '/login';
         }
