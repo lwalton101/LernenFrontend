@@ -1,15 +1,19 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import axiosInstance from "../axiosInstance.ts";
 import {Navbar} from "../Navbar.tsx";
+import {useUser} from "../context/UserContext.tsx";
 
 export function RootPage(){
-    useEffect(() => {
-        axiosInstance.get("/auth/testProtected").then((r) => console.log(r.data))
-    }, []);
+    const user = useUser();
     return(
         <>
             <div className={"flex flex-col h-screen"}>
                 <Navbar></Navbar>
+                <div className={"flex flex-col h-full"}>
+                    <h1>
+                        Welcome back, {user ? user.username : ""}
+                    </h1>
+                </div>
             </div>
         </>
     )
