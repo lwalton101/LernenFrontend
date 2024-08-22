@@ -5,6 +5,7 @@ import {
 import {HomePage} from "./Pages/HomePage.tsx";
 import {RootPage} from "./Pages/RootPage.tsx";
 import {LoginPage} from "./Pages/LoginPage.tsx";
+import {UserProvider} from "./context/UserContext.tsx";
 
 function App() {
 
@@ -23,9 +24,11 @@ function App() {
 
     return (
     <>
-      <div className={"bg-bg h-full w-full"}>
-          <RouterProvider router={router}></RouterProvider>
-      </div>
+        <UserProvider>
+            <div className={"bg-bg h-full w-full"}>
+                <RouterProvider router={router}></RouterProvider>
+            </div>
+        </UserProvider>
     </>
   )
 }
