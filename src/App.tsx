@@ -7,6 +7,7 @@ import {RootPage} from "./Pages/RootPage.tsx";
 import {LoginPage} from "./Pages/LoginPage.tsx";
 import {UserProvider} from "./context/UserContext.tsx";
 import {CreatePage} from "./Pages/CreatePage.tsx";
+import {EditPage} from "./Pages/EditPage.tsx";
 
 function App() {
 
@@ -23,6 +24,9 @@ function App() {
         },{
             path: "/create",
             element: <CreatePage/>,
+        },{
+            path: "/edit",
+            element: <EditPage/>,
         }
     ]);
 
