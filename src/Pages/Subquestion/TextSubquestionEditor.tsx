@@ -19,9 +19,10 @@ export function TextSubquestionEditor({subquestion_id}: TextSubquestionEditorPro
 
     return (
         <>
-            <textarea value={question?.subquestions[subquestion_id].text} onChange={onTextChange}>
-
-            </textarea>
+            <div className={"flex flex-col w-full items-center"}>
+                <textarea value={question?.subquestions[subquestion_id].text} onChange={onTextChange} className={"m-3 w-2/3 border-primary_dark border-2"}/>
+                <button onClick={() => alert("TODO: Create this")} className={"bg-primary_dark rounded-full m-3 text-white p-2 w-1/3"}>Delete</button>
+            </div>
         </>
     );
 }
