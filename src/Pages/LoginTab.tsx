@@ -20,7 +20,10 @@ export function LoginTab(){
             });
 
             localStorage.setItem("token", response.data.token);
-            navigator("/root");
+            setTimeout(() => {
+                navigator("/root");
+            }, 2000)
+
         } catch (err: unknown) {
             if(err instanceof AxiosError){
                 if(!err.response){
