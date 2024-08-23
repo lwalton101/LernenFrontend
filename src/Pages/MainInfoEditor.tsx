@@ -29,6 +29,7 @@ export function MainInfoEditor(props: MainInfoEditorProps) {
         tags.push(newTagName)
         const updatedQuestion = { ...question, tags: tags };
         setQuestion(updatedQuestion);
+        setNewTagName("");
     }
 
     function onNewTagNameChange(e: ChangeEvent<HTMLInputElement>) {
