@@ -22,7 +22,7 @@ export function CreatePage() {
             subquestions: []
         });
         console.log(response.data)
-        navigator(`/edit?${response.data.id}`);
+        navigator(`/edit?id=${response.data.id}`);
     }
 
     return (
