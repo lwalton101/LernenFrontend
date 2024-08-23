@@ -1,4 +1,5 @@
 import {useQuestion} from "../context/QuestionContext.tsx";
+import {TextSubquestionEditor} from "./Subquestion/TextSubquestionEditor.tsx";
 
 export function SubquestionEditor() {
     const { question, setQuestion } = useQuestion();
@@ -31,7 +32,7 @@ export function SubquestionEditor() {
                 </h1>
                 {question?.subquestions.map((subquestion) => (
                     <div>
-                        {subquestion.type == 0 ? (<div>0</div>) : ""}
+                        {subquestion.type == 0 ? (<TextSubquestionEditor subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : ""}
                         {subquestion.type == 1 ? (<div>1</div>) : ""}
                         {subquestion.type == 2 ? (<div>2</div>) : ""}
                     </div>
