@@ -2,22 +2,24 @@ import {Navbar} from "../Navbar.tsx";
 import {useState} from "react";
 import axiosInstance from "../axiosInstance.ts";
 import {useUser} from "../context/UserContext.tsx";
+import {AxiosResponse} from "axios";
+import {useNavigate} from "react-router-dom";
 
 export function CreatePage() {
     const [title, setTitle] = useState("");
+    const navigator = useNavigate();
     const user = useUser();
     async function onCreatePressed() {
-        alert(user)
-        await axiosInstance.post("/question/create", {
+        const response: AxiosResponse<{message, id}> = await axiosInstance.post("/question/create", {
             title: title,
             user_id: user?.user_id,
             created_at: Date.now(),
             published: false,
-            tags: ["first-question"],
+            tags: ["new-question"],
             subquestions: []
         });
-
-
+        console.log(response.data)
+        navigator(`/edit?${response.data.id}`);
     }
 
     return (
