@@ -6,6 +6,7 @@ import {HomePage} from "./Pages/HomePage.tsx";
 import {RootPage} from "./Pages/RootPage.tsx";
 import {LoginPage} from "./Pages/LoginPage.tsx";
 import {UserProvider} from "./context/UserContext.tsx";
+import {CreatePage} from "./Pages/CreatePage.tsx";
 
 function App() {
 
@@ -19,7 +20,10 @@ function App() {
         },{
             path: "/login",
             element: <LoginPage/>,
-        },
+        },{
+            path: "/create",
+            element: <CreatePage/>,
+        }
     ]);
 
     return (
