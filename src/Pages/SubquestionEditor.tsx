@@ -31,6 +31,16 @@ export function SubquestionEditor(props: SubquestionEditorProps) {
         setQuestion({...question, subquestions: question.subquestions})
     }
 
+    function deleteSubquestion(index: number){
+        if(!question){
+            return;
+        }
+
+        const subquestions = question.subquestions;
+        subquestions.splice(index,1);
+        setQuestion({...question, subquestions: subquestions});
+    }
+
     return (
         <>
             <div className={props.className}>
@@ -40,9 +50,9 @@ export function SubquestionEditor(props: SubquestionEditorProps) {
                 <div className={"bg-primary flex flex-col items-center p-5 w-3/5"}>
                     {question?.subquestions.map((subquestion) => (
                         <div className={"w-full"}>
-                            {subquestion.type == 0 ? (<TextSubquestionEditor subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : ""}
-                            {subquestion.type == 1 ? (<AudioSubquestionEditor subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : ""}
-                            {subquestion.type == 2 ? (<MultipleChoiceEditor subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}></MultipleChoiceEditor>) : ""}
+                            {subquestion.type == 0 ? (<TextSubquestionEditor delete={deleteSubquestion} subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : ""}
+                            {subquestion.type == 1 ? (<AudioSubquestionEditor delete={deleteSubquestion} subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : ""}
+                            {subquestion.type == 2 ? (<MultipleChoiceEditor delete={deleteSubquestion} subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}></MultipleChoiceEditor>) : ""}
                         </div>
                     ))}
                 </div>
