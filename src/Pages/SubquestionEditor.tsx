@@ -34,16 +34,19 @@ export function SubquestionEditor(props: SubquestionEditorProps) {
     return (
         <>
             <div className={props.className}>
-                <h1>
-                    Subquestion Editor
+                <h1 className={"text-5xl mt-3 mb-5"}>
+                    Question Editor
                 </h1>
-                {question?.subquestions.map((subquestion) => (
-                    <div>
-                        {subquestion.type == 0 ? (<TextSubquestionEditor subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : ""}
-                        {subquestion.type == 1 ? (<AudioSubquestionEditor subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : ""}
-                        {subquestion.type == 2 ? (<MultipleChoiceEditor subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}></MultipleChoiceEditor>) : ""}
-                    </div>
-                ))}
+                <div className={"bg-primary flex flex-col items-center p-5"}>
+                    {question?.subquestions.map((subquestion) => (
+                        <div className={"w-full"}>
+                            {subquestion.type == 0 ? (<TextSubquestionEditor subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : ""}
+                            {subquestion.type == 1 ? (<AudioSubquestionEditor subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : ""}
+                            {subquestion.type == 2 ? (<MultipleChoiceEditor subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}></MultipleChoiceEditor>) : ""}
+                        </div>
+                    ))}
+                </div>
+
                 <button onClick={() => addSubquestion(0)}>Add Text</button>
                 <button onClick={() => addSubquestion(1)}>Add Audio</button>
                 <button onClick={() => addSubquestion(2)}>Add Multiple Choice</button>
