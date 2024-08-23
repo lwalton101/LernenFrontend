@@ -10,6 +10,9 @@ export function CreatePage() {
     const navigator = useNavigate();
     const user = useUser();
     async function onCreatePressed() {
+        if(!title){
+            return;
+        }
         const response: AxiosResponse<{message, id}> = await axiosInstance.post("/question/create", {
             title: title,
             user_id: user?.user_id,
