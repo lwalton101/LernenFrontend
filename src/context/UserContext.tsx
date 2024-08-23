@@ -1,26 +1,42 @@
-import {createContext, ReactNode, useContext, useEffect, useState} from 'react';
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import axiosInstance from '../axiosInstance.ts';
-import {User} from "../Model/User.ts";
+import { User } from "../Model/User.ts";
+import { useLocation } from "react-router-dom";
 
-// create context with an empty object as the default value
-const UserContext = createContext<any>(null);
+// Define the structure of the context value
+interface UserContextType {
+    user: User | null;
+    refreshUser: () => void;
+}
+
+// Create context with an empty object as the default value
+const UserContext = createContext<UserContextType | null>(null);
 
 export function UserProvider({ children }: { children: ReactNode }) {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState<User | null>(null);
 
+    // Function to fetch the user data
+    const fetchUser = () => {
+        console.log("Fetching user data...");
+        axiosInstance.get('/user')
+            .then((response) => setUser(response.data))
+            .catch(err => console.error(err));
+    };
+
+    // Fetch user data on component mount or location change
     useEffect(() => {
-        // Fetch the user data
-        axiosInstance.get('/user').then((r) => setUser(r.data)).catch(err => console.error(err));
+        fetchUser();
     }, []);
 
+    // Provide both user and refreshUser function in context
     return (
-        <UserContext.Provider value={user}>
+        <UserContext.Provider value={{ user, refreshUser: fetchUser }}>
             {children}
         </UserContext.Provider>
     );
 }
 
 // Create a custom hook for easy access to the UserContext
-export function useUser(): User | null {
+export function useUser(): UserContextType | null {
     return useContext(UserContext);
 }

@@ -2,11 +2,13 @@ import {useState} from "react";
 import axiosInstance from "../axiosInstance.ts";
 import {AxiosError} from "axios";
 import {useNavigate} from "react-router-dom";
+import {useUser} from "../context/UserContext.tsx";
 
 export function LoginTab(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const { user, refreshUser } = useUser();
 
     const navigator = useNavigate();
 
@@ -20,6 +22,7 @@ export function LoginTab(){
             });
 
             localStorage.setItem("token", response.data.token);
+            await refreshUser();
             setTimeout(() => {
                 navigator("/root");
             }, 2000)

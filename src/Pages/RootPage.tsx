@@ -2,7 +2,7 @@ import {Navbar} from "../Navbar.tsx";
 import {useUser} from "../context/UserContext.tsx";
 
 export function RootPage(){
-    const user = useUser();
+    const {user, refreshUser} = useUser();
     return(
         <>
             <div className={"flex flex-col h-screen"}>

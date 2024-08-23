@@ -8,11 +8,19 @@ const axiosInstance: AxiosInstance = axios.create({
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json',
-        "Token": localStorage.getItem("token")
     },
 });
 
-
+axiosInstance.interceptors.request.use(
+    (config) => {
+        config.headers['Token'] = localStorage.getItem("token")
+        return config;
+    },
+    (error) => {
+        // Handle request error here
+        return Promise.reject(error);
+    }
+);
 axiosInstance.interceptors.response.use(
     response => response,
     error => {

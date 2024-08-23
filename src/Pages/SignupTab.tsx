@@ -2,6 +2,7 @@ import {useState} from "react";
 import axiosInstance from "../axiosInstance.ts";
 import {AxiosError} from "axios";
 import {useNavigate} from "react-router-dom";
+import {useUser} from "../context/UserContext.tsx";
 
 export function SignupTab(){
     const [email, setEmail] = useState("");
@@ -9,6 +10,7 @@ export function SignupTab(){
     const [username, setUsername] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const navigator = useNavigate();
+    const { user, refreshUser } = useUser();
 
     async function onSignupButtonClick() {
         try {
@@ -24,9 +26,10 @@ export function SignupTab(){
             }, {});
 
             localStorage.setItem("token", loginResponse.data.token);
+            await refreshUser();
             setTimeout(() => {
                 navigator("/root")
-            }, 1000)
+            }, 2000)
 
         } catch (err: unknown) {
             if(err instanceof AxiosError){

@@ -1,9 +1,13 @@
 import {NavbarItem} from "../NavbarItem.tsx";
 import defaultPFP from "../src/assets/default_pfp.png"
 import {useUser} from "./context/UserContext.tsx";
+import {useEffect} from "react";
 
 export function Navbar() {
-    const user = useUser();
+    const { user, refreshUser } = useUser();
+    useEffect(() => {
+        refreshUser();
+    }, []);
     return (
         <>
             <div className="flex justify-between items-center bg-primary">

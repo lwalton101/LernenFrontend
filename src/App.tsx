@@ -14,29 +14,39 @@ function App() {
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <HomePage />,
+            element: (
+                <UserProvider>
+                    <HomePage />
+                </UserProvider>
+            ),
         },{
             path: "/root",
-            element: <RootPage />,
+            element: <UserProvider>
+                    <RootPage />
+                </UserProvider>
         },{
             path: "/login",
-            element: <LoginPage/>,
+            element: <UserProvider>
+                <LoginPage />
+            </UserProvider>
         },{
             path: "/create",
-            element: <CreatePage/>,
+            element: <UserProvider>
+                <CreatePage />
+            </UserProvider>
         },{
             path: "/edit",
-            element: <EditPage/>,
+            element: <UserProvider>
+                <EditPage />
+            </UserProvider>
         }
     ]);
 
     return (
     <>
-        <UserProvider>
-            <div className={"bg-bg h-full w-full"}>
-                <RouterProvider router={router}></RouterProvider>
-            </div>
-        </UserProvider>
+        <div className={"bg-bg h-full w-full"}>
+            <RouterProvider router={router}></RouterProvider>
+        </div>
     </>
   )
 }
