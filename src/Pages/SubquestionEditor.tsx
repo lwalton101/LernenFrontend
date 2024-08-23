@@ -47,9 +47,12 @@ export function SubquestionEditor(props: SubquestionEditorProps) {
                     ))}
                 </div>
 
-                <button onClick={() => addSubquestion(0)}>Add Text</button>
-                <button onClick={() => addSubquestion(1)}>Add Audio</button>
-                <button onClick={() => addSubquestion(2)}>Add Multiple Choice</button>
+                <div className={"flex items-center w-2/3"}>
+                    <button onClick={() => addSubquestion(0)} className={"flex-1 p-5 bg-primary_mid rounded-xl m-3"}>Add Text</button>
+                    <button onClick={() => addSubquestion(1)} className={"flex-1 p-5 bg-primary_mid rounded-xl m-3"}>Add Audio</button>
+                    <button onClick={() => addSubquestion(2)} className={"flex-1 p-5 bg-primary_mid rounded-xl m-3"}>Add Multiple Choice</button>
+                </div>
+
             </div>
         </>
     );
