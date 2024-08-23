@@ -1,6 +1,5 @@
 import {ChangeEvent, useEffect, useState} from "react";
 import {useQuestion} from "../../context/QuestionContext.tsx";
-import {Subquestion} from "../../Model/Subquestion.ts";
 
 type ChangeFunction = (e: ChangeEvent<HTMLInputElement>) => void;
 interface MultipleChoiceEditorButtonProps {
@@ -11,10 +10,9 @@ interface MultipleChoiceEditorButtonProps {
 }
 
 export function MultipleChoiceEditorButton(props: MultipleChoiceEditorButtonProps) {
-    const { question, setQuestion } = useQuestion();
-    const [subquestion, setSubquestion]: Subquestion = useState()
-    const [options, setOptions]: Subquestion = useState([])
-    const [answers, setAnswers]: Subquestion = useState([])
+    const { question } = useQuestion();
+    const [options, setOptions] = useState(["","","",""])
+    const [answers, setAnswers] = useState([false, false,false,false])
     useEffect(() => {
         if(!question){
             return;

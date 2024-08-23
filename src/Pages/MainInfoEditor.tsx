@@ -1,5 +1,5 @@
 import {useQuestion} from "../context/QuestionContext.tsx";
-import React, {ChangeEvent, useState} from "react";
+import {ChangeEvent, useState} from "react";
 import axiosInstance from "../axiosInstance.ts";
 
 interface MainInfoEditorProps {

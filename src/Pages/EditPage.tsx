@@ -9,7 +9,11 @@ export function EditPage() {
     const [searchParams, _] = useSearchParams();
     const [id, setId] = useState("");
     useEffect(() => {
-        setId(searchParams.get("id"));
+        const id = searchParams.get("id");
+        if(!id){
+            return;
+        }
+        setId(id);
     }, []);
     return (
         <>

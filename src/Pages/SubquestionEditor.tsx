@@ -2,7 +2,6 @@ import {useQuestion} from "../context/QuestionContext.tsx";
 import {TextSubquestionEditor} from "./Subquestion/TextSubquestionEditor.tsx";
 import {AudioSubquestionEditor} from "./Subquestion/AudioSubquestionEditor.tsx";
 import {MultipleChoiceEditor} from "./Subquestion/MultipleChoiceEditor.tsx";
-import {Subquestion} from "../Model/Subquestion.ts";
 
 interface SubquestionEditorProps {
     className: string

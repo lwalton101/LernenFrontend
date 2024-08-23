@@ -13,7 +13,7 @@ export function CreatePage() {
         if(!title){
             return;
         }
-        const response: AxiosResponse<{message, id}> = await axiosInstance.post("/question/create", {
+        const response: AxiosResponse<{message: string, id: string}> = await axiosInstance.post("/question/create", {
             title: title,
             user_id: user?.user_id,
             created_at: Date.now(),
