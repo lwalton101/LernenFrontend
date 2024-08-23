@@ -1,6 +1,7 @@
 import {useQuestion} from "../context/QuestionContext.tsx";
 import {TextSubquestionEditor} from "./Subquestion/TextSubquestionEditor.tsx";
 import {AudioSubquestionEditor} from "./Subquestion/AudioSubquestionEditor.tsx";
+import {MultipleChoiceEditor} from "./Subquestion/MultipleChoiceEditor.tsx";
 
 export function SubquestionEditor() {
     const { question, setQuestion } = useQuestion();
@@ -35,7 +36,7 @@ export function SubquestionEditor() {
                     <div>
                         {subquestion.type == 0 ? (<TextSubquestionEditor subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : ""}
                         {subquestion.type == 1 ? (<AudioSubquestionEditor subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : ""}
-                        {subquestion.type == 2 ? (<div>2</div>) : ""}
+                        {subquestion.type == 2 ? (<MultipleChoiceEditor subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}></MultipleChoiceEditor>) : ""}
                     </div>
                 ))}
                 <button onClick={() => addSubquestion(0)}>Add Text</button>
