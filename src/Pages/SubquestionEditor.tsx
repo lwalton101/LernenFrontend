@@ -2,8 +2,13 @@ import {useQuestion} from "../context/QuestionContext.tsx";
 import {TextSubquestionEditor} from "./Subquestion/TextSubquestionEditor.tsx";
 import {AudioSubquestionEditor} from "./Subquestion/AudioSubquestionEditor.tsx";
 import {MultipleChoiceEditor} from "./Subquestion/MultipleChoiceEditor.tsx";
+import {Subquestion} from "../Model/Subquestion.ts";
 
-export function SubquestionEditor() {
+interface SubquestionEditorProps {
+    className: string
+}
+
+export function SubquestionEditor(props: SubquestionEditorProps) {
     const { question, setQuestion } = useQuestion();
 
     function addSubquestion(type: number) {
@@ -28,7 +33,7 @@ export function SubquestionEditor() {
 
     return (
         <>
-            <div>
+            <div className={props.className}>
                 <h1>
                     Subquestion Editor
                 </h1>

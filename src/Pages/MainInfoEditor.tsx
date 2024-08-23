@@ -2,7 +2,11 @@ import {useQuestion} from "../context/QuestionContext.tsx";
 import React, {ChangeEvent, useState} from "react";
 import axiosInstance from "../axiosInstance.ts";
 
-export function MainInfoEditor() {
+interface MainInfoEditorProps {
+    className: string
+}
+
+export function MainInfoEditor(props: MainInfoEditorProps) {
     const { question, setQuestion } = useQuestion();
     const [newTagName, setNewTagName] = useState("")
 
@@ -45,7 +49,7 @@ export function MainInfoEditor() {
 
     return (
         <>
-            <div className={"bg-primary_mid"}>
+            <div className={props.className}>
                 <h1>Question Editor</h1>
                 <input value={question?.title} onChange={(onTitleChange)}/>
                 <div>

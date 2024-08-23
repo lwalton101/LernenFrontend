@@ -14,11 +14,11 @@ export function EditPage() {
     return (
         <>
             <QuestionProvider id={id}>
-                <div className={"h-screen"}>
+                <div className={"h-screen flex flex-col"}>
                     <Navbar></Navbar>
-                    <div className={"h-full flex"}>
-                        <MainInfoEditor></MainInfoEditor>
-                        <SubquestionEditor></SubquestionEditor>
+                    <div className={"flex-1 flex"}>
+                        <MainInfoEditor className={""}></MainInfoEditor>
+                        <SubquestionEditor className={"bg-primary_mid flex-1 flex flex-col items-center overflow-y-scroll"}></SubquestionEditor>
                     </div>
 
                 </div>
