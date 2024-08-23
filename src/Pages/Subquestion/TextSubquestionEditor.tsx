@@ -19,8 +19,8 @@ export function TextSubquestionEditor({subquestion_id}: TextSubquestionEditorPro
 
     return (
         <>
-            <textarea onChange={onTextChange}>
-                {question?.subquestions[subquestion_id].text}
+            <textarea value={question?.subquestions[subquestion_id].text} onChange={onTextChange}>
+
             </textarea>
         </>
     );
