@@ -1,5 +1,6 @@
 import {useQuestion} from "../context/QuestionContext.tsx";
 import React, {ChangeEvent, useState} from "react";
+import axiosInstance from "../axiosInstance.ts";
 
 export function MainInfoEditor() {
     const { question, setQuestion } = useQuestion();
@@ -35,6 +36,13 @@ export function MainInfoEditor() {
         setQuestion(updatedQuestion);
     }
 
+    async function onEditPress() {
+        if(!question){
+            return;
+        }
+        await axiosInstance.post(`/question/${question.question_id}/update`, question)
+    }
+
     return (
         <>
             <div className={"bg-primary_mid"}>
@@ -47,12 +55,12 @@ export function MainInfoEditor() {
                             {tag}
                         </div>
                     ))}
-                    <input onChange={onNewTagNameChange} placeholder={"new tag"}/>
+                    <input value={newTagName} onChange={onNewTagNameChange} placeholder={"New Tag"}/>
                     <button onClick={onAddTagPress}>Add Tag</button>
                 </div>
                 <p>Published</p>
                 <input type={"checkbox"} onChange={onPublishedChange} checked={question?.published}/>
-                <button onClick={onAddTagPress}>Press</button>
+                <button onClick={onEditPress}>Edit</button>
             </div>
         </>
     );
