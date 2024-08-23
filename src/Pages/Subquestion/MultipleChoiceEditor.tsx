@@ -53,10 +53,10 @@ export function MultipleChoiceEditor({subquestion_id}: MultipleChoiceEditorProps
 
     return (
         <>
-            <MultipleChoiceEditorButton onChange={(e) => updateOptions(e, 0)} onChecked={(e) => updateAnswer(e, 0)}/>
-            <MultipleChoiceEditorButton onChange={(e) => updateOptions(e, 1)} onChecked={(e) => updateAnswer(e, 1)}/>
-            <MultipleChoiceEditorButton onChange={(e) => updateOptions(e, 2)} onChecked={(e) => updateAnswer(e, 2)}/>
-            <MultipleChoiceEditorButton onChange={(e) => updateOptions(e, 3)} onChecked={(e) => updateAnswer(e, 3)}/>
+            <MultipleChoiceEditorButton optionIndex={0} subquestion_id={subquestion_id} onChange={(e) => updateOptions(e, 0)} onChecked={(e) => updateAnswer(e, 0)}/>
+            <MultipleChoiceEditorButton optionIndex={1} subquestion_id={subquestion_id} onChange={(e) => updateOptions(e, 1)} onChecked={(e) => updateAnswer(e, 1)}/>
+            <MultipleChoiceEditorButton optionIndex={2} subquestion_id={subquestion_id} onChange={(e) => updateOptions(e, 2)} onChecked={(e) => updateAnswer(e, 2)}/>
+            <MultipleChoiceEditorButton optionIndex={3} subquestion_id={subquestion_id} onChange={(e) => updateOptions(e, 3)} onChecked={(e) => updateAnswer(e, 3)}/>
         </>
     )
 }
