@@ -24,8 +24,8 @@ export function MultipleChoiceEditorButton(props: MultipleChoiceEditorButtonProp
         setAnswers([subquestion.answer1, subquestion.answer2, subquestion.answer3, subquestion.answer4]);
     }, [question]);
     return (
-        <button className={"bg-primary_dark p-2"}>
-            <input value={options[props.optionIndex]} className={"bg-primary_mid"} onChange={props.onChange}/>
+        <button className={"bg-primary_dark p-2 rounded-sm"}>
+            <input value={options[props.optionIndex]} className={"bg-primary_mid rounded-md text-black placeholder-gray-700 mr-1"} onChange={props.onChange} placeholder={`Option ${props.optionIndex}`}/>
             <input checked={answers[props.optionIndex]} type={"checkbox"} onChange={props.onChecked}/>
         </button>
     );

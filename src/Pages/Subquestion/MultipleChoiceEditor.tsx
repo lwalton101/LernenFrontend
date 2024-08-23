@@ -52,12 +52,15 @@ export function MultipleChoiceEditor({subquestion_id}: MultipleChoiceEditorProps
     }
 
     return (
-        <>
-            <MultipleChoiceEditorButton optionIndex={0} subquestion_id={subquestion_id} onChange={(e) => updateOptions(e, 0)} onChecked={(e) => updateAnswer(e, 0)}/>
-            <MultipleChoiceEditorButton optionIndex={1} subquestion_id={subquestion_id} onChange={(e) => updateOptions(e, 1)} onChecked={(e) => updateAnswer(e, 1)}/>
-            <MultipleChoiceEditorButton optionIndex={2} subquestion_id={subquestion_id} onChange={(e) => updateOptions(e, 2)} onChecked={(e) => updateAnswer(e, 2)}/>
-            <MultipleChoiceEditorButton optionIndex={3} subquestion_id={subquestion_id} onChange={(e) => updateOptions(e, 3)} onChecked={(e) => updateAnswer(e, 3)}/>
-        </>
+        <div className={"flex flex-col items-center justify-center mt-4 mb-4"}>
+            <div className={"grid grid-cols-2 grid-rows-2 gap-2 w-2/3 mb-2"}>
+                <MultipleChoiceEditorButton optionIndex={0} subquestion_id={subquestion_id} onChange={(e) => updateOptions(e, 0)} onChecked={(e) => updateAnswer(e, 0)}/>
+                <MultipleChoiceEditorButton optionIndex={1} subquestion_id={subquestion_id} onChange={(e) => updateOptions(e, 1)} onChecked={(e) => updateAnswer(e, 1)}/>
+                <MultipleChoiceEditorButton optionIndex={2} subquestion_id={subquestion_id} onChange={(e) => updateOptions(e, 2)} onChecked={(e) => updateAnswer(e, 2)}/>
+                <MultipleChoiceEditorButton optionIndex={3} subquestion_id={subquestion_id} onChange={(e) => updateOptions(e, 3)} onChecked={(e) => updateAnswer(e, 3)}/>
+            </div>
+            <button onClick={() => alert("TODO: Create this")} className={"bg-primary_dark rounded-full m-3 mt-0 text-white p-2 w-1/3"}>Delete</button>
+        </div>
     )
 }
 

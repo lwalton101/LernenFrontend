@@ -37,7 +37,7 @@ export function SubquestionEditor(props: SubquestionEditorProps) {
                 <h1 className={"text-5xl mt-3 mb-5"}>
                     Question Editor
                 </h1>
-                <div className={"bg-primary flex flex-col items-center p-5"}>
+                <div className={"bg-primary flex flex-col items-center p-5 w-3/5"}>
                     {question?.subquestions.map((subquestion) => (
                         <div className={"w-full"}>
                             {subquestion.type == 0 ? (<TextSubquestionEditor subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : ""}
