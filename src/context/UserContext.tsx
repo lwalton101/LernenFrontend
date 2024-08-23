@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import {createContext, ReactNode, useContext, useEffect, useState} from 'react';
 import axiosInstance from '../axiosInstance.ts';
 import {User} from "../Model/User.ts";
 
@@ -22,9 +22,5 @@ export function UserProvider({ children }: { children: ReactNode }) {
 
 // Create a custom hook for easy access to the UserContext
 export function useUser(): User | null {
-    const user = useContext(UserContext);
-    if(!user && window.location.href.split("/")[3] !== "login"){
-        window.location.href = "/login";
-    }
-    return user;
+    return useContext(UserContext);
 }
