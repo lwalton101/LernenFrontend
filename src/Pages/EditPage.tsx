@@ -17,7 +17,7 @@ export function EditPage() {
                 <div className={"h-screen flex flex-col"}>
                     <Navbar></Navbar>
                     <div className={"flex-1 flex"}>
-                        <MainInfoEditor className={"bg-primary_mid"}></MainInfoEditor>
+                        <MainInfoEditor className={"bg-primary_mid flex flex-col items-center"}></MainInfoEditor>
                         <SubquestionEditor className={"bg-gray-200 flex-1 flex flex-col items-center overflow-y-scroll"}></SubquestionEditor>
                     </div>
 

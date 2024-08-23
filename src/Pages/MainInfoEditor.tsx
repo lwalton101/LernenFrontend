@@ -23,6 +23,9 @@ export function MainInfoEditor(props: MainInfoEditorProps) {
             return;
         }
         const tags = question.tags;
+        if(tags.includes(newTagName) || tags.length >= 5){
+            return;
+        }
         tags.push(newTagName)
         const updatedQuestion = { ...question, tags: tags };
         setQuestion(updatedQuestion);
@@ -47,24 +50,45 @@ export function MainInfoEditor(props: MainInfoEditorProps) {
         await axiosInstance.post(`/question/${question.question_id}/update`, question)
     }
 
+    function deleteTag(tag: string) {
+        if(!question){
+            return;
+        }
+        const tagIndex = question.tags.indexOf(tag);
+        question.tags.splice(tagIndex, 1);
+        setQuestion({...question, tags: question.tags});
+    }
+
     return (
         <>
             <div className={props.className}>
-                <h1>Question Editor</h1>
-                <input value={question?.title} onChange={(onTitleChange)}/>
-                <div>
-                    <h1>Tags</h1>
+                <div className={"flex m-2"}>
+                    <p className={"mr-1"}>Title:   </p>
+                    <input placeholder={"Enter Title"} value={question?.title} onChange={(onTitleChange)}/>
+                </div>
+                <hr className="border-t-4 border-secondary w-11/12 my-2"/>
+                <div className={"flex flex-col items-center"}>
+                    <h1 className={"size-9"}>Tags</h1>
+
                     {question?.tags.map((tag) => (
-                        <div key={tag}>
-                            {tag}
+                        <div key={tag} className={"flex gap-2 bg-gray-200 p-2 rounded mb-2"}>
+                            <p>{tag}</p>
+                            <button onClick={() => deleteTag(tag)}>X</button>
                         </div>
                     ))}
                     <input value={newTagName} onChange={onNewTagNameChange} placeholder={"New Tag"}/>
-                    <button onClick={onAddTagPress}>Add Tag</button>
+                    <button className={"bg-primary_dark rounded-full m-3 text-white p-2 w-5/6"} onClick={onAddTagPress}>Add Tag</button>
                 </div>
-                <p>Published</p>
-                <input type={"checkbox"} onChange={onPublishedChange} checked={question?.published}/>
-                <button onClick={onEditPress}>Edit</button>
+
+                <hr className="border-t-4 border-secondary w-11/12 my-2"/>
+
+                <div className={"flex gap-2"}>
+                    <p>Published</p>
+                    <input type={"checkbox"} onChange={onPublishedChange} checked={question?.published}/>
+                </div>
+                <hr className="border-t-4 border-secondary w-11/12 my-2"/>
+
+                <button className={"bg-primary_dark rounded-full m-3 text-white p-2 w-5/6"} onClick={onEditPress}>Edit</button>
             </div>
         </>
     );
