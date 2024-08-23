@@ -5,7 +5,7 @@ import {QuestionProvider} from "../context/QuestionContext.tsx";
 import {MainInfoEditor} from "./MainInfoEditor.tsx";
 
 export function EditPage() {
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams, _] = useSearchParams();
     const [id, setId] = useState("");
     useEffect(() => {
         setId(searchParams.get("id"));

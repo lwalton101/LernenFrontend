@@ -1,18 +1,9 @@
 import {useQuestion} from "../context/QuestionContext.tsx";
-import {useUser} from "../context/UserContext.tsx";
 import React, {ChangeEvent, useState} from "react";
 
 export function MainInfoEditor() {
     const { question, setQuestion } = useQuestion();
     const [newTagName, setNewTagName] = useState("")
-
-    function onPress() {
-        if(!question){
-            return;
-        }
-        const updatedQuestion = { ...question, title: "Blarg" };
-        setQuestion(updatedQuestion);
-    }
 
     function onTitleChange(e: ChangeEvent<HTMLInputElement>) {
         if(!question){
