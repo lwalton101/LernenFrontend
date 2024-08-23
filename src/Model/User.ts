@@ -1,6 +1,6 @@
 export interface User {
-    userID?: number;
+    user_id?: number;
     username: string;
-    accountCreationDate?: Date;
-    profilePic?: string;
+    account_creation_date?: Date;
+    profile_pic?: string;
 }
