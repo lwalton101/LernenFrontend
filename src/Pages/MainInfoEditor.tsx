@@ -89,7 +89,7 @@ export function MainInfoEditor(props: MainInfoEditorProps) {
                 </div>
                 <hr className="border-t-4 border-secondary w-11/12 my-2"/>
 
-                <button className={"bg-primary_dark rounded-full m-3 text-white p-2 w-5/6"} onClick={onEditPress}>Edit</button>
+                <button className={"bg-primary_dark rounded-full m-3 text-white p-2 w-5/6"} onClick={onEditPress}>Save</button>
             </div>
         </>
     );
