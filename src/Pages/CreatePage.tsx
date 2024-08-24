@@ -8,9 +8,12 @@ import {useNavigate} from "react-router-dom";
 export function CreatePage() {
     const [title, setTitle] = useState("");
     const navigator = useNavigate();
-    const user = useUser();
+    const {user} = useUser();
     async function onCreatePressed() {
         if(!title){
+            return;
+        }
+        if(!user){
             return;
         }
         const response: AxiosResponse<{message: string, id: string}> = await axiosInstance.post("/question/create", {

@@ -1,7 +1,6 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import axiosInstance from '../axiosInstance.ts';
 import { User } from "../Model/User.ts";
-import { useLocation } from "react-router-dom";
 
 // Define the structure of the context value
 interface UserContextType {
@@ -37,6 +36,10 @@ export function UserProvider({ children }: { children: ReactNode }) {
 }
 
 // Create a custom hook for easy access to the UserContext
-export function useUser(): UserContextType | null {
-    return useContext(UserContext);
+export function useUser(): UserContextType {
+    const context = useContext(UserContext);
+    if(!context){
+        throw new Error("Use User should be in a UserContext.Provider!");
+    }
+    return context;
 }

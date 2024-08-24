@@ -10,7 +10,7 @@ export function SignupTab(){
     const [username, setUsername] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const navigator = useNavigate();
-    const { user, refreshUser } = useUser();
+    const { refreshUser } = useUser();
 
     async function onSignupButtonClick() {
         try {

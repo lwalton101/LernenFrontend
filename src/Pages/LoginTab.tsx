@@ -8,7 +8,7 @@ export function LoginTab(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-    const { user, refreshUser } = useUser();
+    const { refreshUser } = useUser();
 
     const navigator = useNavigate();
 
