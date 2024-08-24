@@ -16,15 +16,18 @@ export function RootPage(){
         <>
             <div className={"flex flex-col h-screen"}>
                 <Navbar></Navbar>
-                <div className={"flex flex-col h-full"}>
+                <div className={"flex flex-col h-full items-center"}>
                     <h1>
                         Welcome back, {user ? user.username : ""}
                     </h1>
-                    {questions.map((question: Question) => (
-                        <div key={question.question_id}>
-                            <QuestionBox question={question}/>
-                        </div>
-                    ))}
+                    <div className={"flex gap-15 flex-wrap items-center"}>
+                        {questions.map((question: Question) => (
+                            <div key={question.question_id} className={"f"}>
+                                <QuestionBox question={question}/>
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
             </div>
         </>
