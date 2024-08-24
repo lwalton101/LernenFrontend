@@ -8,6 +8,7 @@ import {LoginPage} from "./Pages/LoginPage.tsx";
 import {UserProvider} from "./context/UserContext.tsx";
 import {CreatePage} from "./Pages/CreatePage.tsx";
 import {EditPage} from "./Pages/EditPage.tsx";
+import {BrowsePage} from "./Pages/BrowsePage.tsx";
 
 function App() {
 
@@ -39,6 +40,12 @@ function App() {
             element: <UserProvider>
                 <EditPage />
             </UserProvider>
+        },
+        {
+            path:"/browse",
+            element: <UserProvider>
+                <BrowsePage />
+                    </UserProvider>
         }
     ]);
 
