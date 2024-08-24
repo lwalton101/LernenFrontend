@@ -10,7 +10,7 @@ export function RootPage(){
     const {user} = useUser();
     const [questions, setQuestions] = useState([])
     useEffect(() => {
-        axiosInstance.get<Question[]>("/question/browse/1").then((r: AxiosResponse<Question[]>) => setQuestions(r.data)).catch((e) => console.log(e));
+        axiosInstance.get("/question/browse/1").then((r: AxiosResponse) => setQuestions(r.data)).catch((e) => console.log(e));
     }, []);
     return(
         <>
