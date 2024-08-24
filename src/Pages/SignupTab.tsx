@@ -27,10 +27,7 @@ export function SignupTab(){
 
             localStorage.setItem("token", loginResponse.data.token);
             await refreshUser();
-            setTimeout(() => {
-                navigator("/root")
-            }, 2000)
-
+            navigator("/root")
         } catch (err: unknown) {
             if(err instanceof AxiosError){
                 if(!err.response){
