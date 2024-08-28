@@ -9,6 +9,7 @@ import {UserProvider} from "./context/UserContext.tsx";
 import {CreatePage} from "./Pages/CreatePage.tsx";
 import {EditPage} from "./Pages/EditPage.tsx";
 import {BrowsePage} from "./Pages/BrowsePage.tsx";
+import {PlayPage} from "./Pages/PlayPage.tsx";
 
 function App() {
 
@@ -46,6 +47,12 @@ function App() {
             element: <UserProvider>
                 <BrowsePage />
                     </UserProvider>
+        },
+        {
+            path:"/play",
+            element: <UserProvider>
+                <PlayPage />
+            </UserProvider>
         }
     ]);
 
