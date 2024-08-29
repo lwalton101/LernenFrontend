@@ -4,6 +4,7 @@ import axiosInstance from "../axiosInstance.ts";
 import {AxiosResponse} from "axios";
 import {User} from "../Model/User.ts";
 import defaultPFP from "../assets/default_pfp.png"
+import {useNavigate} from "react-router-dom";
 
 interface QuestionBoxProps {
     question: Question;
@@ -11,6 +12,7 @@ interface QuestionBoxProps {
 
 export function QuestionBox({question}: QuestionBoxProps) {
     const [uploader, setUploader] = useState<User | null>(null)
+    const navigator = useNavigate();
     useEffect(() => {
         axiosInstance.get(`/user/${question.user_id}`).then((r: AxiosResponse<User>) => setUploader(r.data)).catch((e) => console.log(e));
     }, []);
@@ -38,7 +40,7 @@ export function QuestionBox({question}: QuestionBoxProps) {
                     </div>
                 </div>
             </div>
-            <button className={"bg-primary_dark rounded-full m-1 text-white p-2 w-5/6 "}>Play</button>
+            <button className={"bg-primary_dark rounded-full m-1 text-white p-2 w-5/6 "} onClick={() => navigator(`/play?id=${question.question_id}`)}>Play</button>
         </div>
 
     );
