@@ -10,6 +10,7 @@ import {CreatePage} from "./Pages/CreatePage.tsx";
 import {EditPage} from "./Pages/EditPage.tsx";
 import {BrowsePage} from "./Pages/BrowsePage.tsx";
 import {PlayPage} from "./Pages/PlayPage.tsx";
+import {ResultPage} from "./Pages/ResultPage.tsx";
 
 function App() {
 
@@ -52,6 +53,12 @@ function App() {
             path:"/play",
             element: <UserProvider>
                 <PlayPage />
+            </UserProvider>
+        },
+        {
+            path:"/result",
+            element: <UserProvider>
+                <ResultPage />
             </UserProvider>
         }
     ]);
