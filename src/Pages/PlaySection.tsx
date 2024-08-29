@@ -31,7 +31,7 @@ export function PlaySection(props: PlaySectionProps) {
 
     return (
         <div className={props.className}>
-            <h1 className={"text-5xl mt-3 mb-5"} >{question?.title}</h1>
+            <h1 className={"text-5xl mt-3 mb-5 text-center"} >{question?.title}</h1>
             <ResultProvider id={question?.question_id as string}>
                 {question?.subquestions.map((subquestion) => (
                     <div key={subquestion.subquestion_id} className={"w-full mt-3 mb-1"}>
