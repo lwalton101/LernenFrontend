@@ -4,6 +4,9 @@ import {AudioSubquestionPlayer} from "./Play/AudioSubquestionPlayer.tsx";
 import {MultipleChoiceSubquestionPlayer} from "./Play/MultipleChoiceSubquestionPlayer.tsx";
 import {ResultProvider, useResult} from "../context/ResultContext.tsx";
 import {SubmitResultButton} from "./Play/SubmitResultButton.tsx";
+import axiosInstance from "../axiosInstance.ts";
+import {useNavigate} from "react-router-dom";
+import {useEffect} from "react";
 
 interface PlaySectionProps {
     className: string
@@ -11,6 +14,20 @@ interface PlaySectionProps {
 
 export function PlaySection(props: PlaySectionProps) {
     const { question, setQuestion } = useQuestion();
+    const navigator = useNavigate();
+
+    useEffect(() => {
+        if(!question){
+            return;
+        }
+        axiosInstance.get(`/result/${question.question_id}/get`).then(r => {
+            if(r.status !== 200){
+                return;
+            }
+            navigator(`/result?id=${question.question_id}`)
+        });
+    }, [question]);
+
 
     return (
         <div className={props.className}>
