@@ -23,6 +23,7 @@ export function PlaySection(props: PlaySectionProps) {
                         {subquestion.type == 2 ? (<MultipleChoiceSubquestionPlayer subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : (<></>)}
                     </div>
                 ))}
+                <SubmitResultButton></SubmitResultButton>
             </ResultProvider>
         </div>
     );
