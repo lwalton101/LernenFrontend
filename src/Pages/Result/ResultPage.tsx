@@ -1,9 +1,9 @@
-import {Navbar} from "../Navbar.tsx";
-import {PlaySection} from "./PlaySection.tsx";
+import {Navbar} from "../../Navbar.tsx";
+import {PlaySection} from "../PlaySection.tsx";
 import {useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {QuestionProvider} from "../context/QuestionContext.tsx";
-import {ResultSection} from "./Result/ResultSection.tsx";
+import {QuestionProvider} from "../../context/QuestionContext.tsx";
+import {ResultSection} from "./ResultSection.tsx";
 
 interface ResultPageProps {
     className: string
