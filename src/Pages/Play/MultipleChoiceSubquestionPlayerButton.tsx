@@ -47,7 +47,6 @@ export function MultipleChoiceSubquestionPlayerButton(props: MultipleChoiceSubqu
         setActive(!active);
         results[props.subquestion_id] = result;
         setResults(results);
-        console.log(JSON.stringify({results: results, id: props.subquestion_id}))
     }
 
     return (
