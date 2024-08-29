@@ -7,6 +7,7 @@ import {MarkViewer} from "./MarkViewer.tsx";
 import {useEffect, useState} from "react";
 import axiosInstance from "../../axiosInstance.ts";
 import {SubquestionResult} from "../../Model/SubquestionResult.ts";
+import {useNavigate} from "react-router-dom";
 
 interface ResultSectionProps {
     className: string
@@ -16,8 +17,12 @@ export function ResultSection(props: ResultSectionProps) {
     const {question} = useQuestion()
     const [results, setResults] :[SubquestionResult[], any] = useState([])
     const [resultLength, setResultLength] = useState(0)
+    const navigator = useNavigate();
     useEffect(() => {
-
+        if(!question){
+            return;
+        }
+        axiosInstance.get(`/result/${question?.question_id}/get`).catch((e) => navigator(`/play?id=${question?.question_id}`))
     }, [question]);
     return (
         <div className={props.className}>
