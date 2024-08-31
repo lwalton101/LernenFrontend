@@ -5,11 +5,7 @@ import {useEffect, useState} from "react";
 import {QuestionProvider} from "../../context/QuestionContext.tsx";
 import {ResultSection} from "./ResultSection.tsx";
 
-interface ResultPageProps {
-    className: string
-}
-
-export function ResultPage(props: ResultPageProps) {
+export function ResultPage() {
     const [searchParams, _] = useSearchParams();
     const [id, setId] = useState("");
     useEffect(() => {
