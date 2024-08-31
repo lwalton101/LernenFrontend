@@ -38,16 +38,16 @@ export function MultipleChoiceEditor(props: MultipleChoiceEditorProps) {
         const subquestion = question.subquestions[props.subquestion_id];
 
         if(index == 0){
-            subquestion.answer1 = e.target.checked;
+            subquestion.answer1 = Number(e.target.checked);
         }
         if(index == 1){
-            subquestion.answer2 = e.target.checked;
+            subquestion.answer2 = Number(e.target.checked);
         }
         if(index == 2){
-            subquestion.answer3 = e.target.checked;
+            subquestion.answer3 = Number(e.target.checked);
         }
         if(index == 3){
-            subquestion.answer4 = e.target.checked;
+            subquestion.answer4 = Number(e.target.checked);
         }
         setQuestion({...question, subquestions: question.subquestions});
     }

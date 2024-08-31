@@ -15,10 +15,10 @@ export function SubquestionEditor(props: SubquestionEditorProps) {
             return;
         }
         question.subquestions.push({
-            answer1: false,
-            answer2: false,
-            answer3: false,
-            answer4: false,
+            answer1: 0,
+            answer2: 0,
+            answer3: 0,
+            answer4: 0,
             option1: "",
             option2: "",
             option3: "",

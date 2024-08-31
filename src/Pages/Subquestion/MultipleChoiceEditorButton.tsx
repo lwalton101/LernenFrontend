@@ -12,7 +12,7 @@ interface MultipleChoiceEditorButtonProps {
 export function MultipleChoiceEditorButton(props: MultipleChoiceEditorButtonProps) {
     const { question } = useQuestion();
     const [options, setOptions] = useState(["","","",""])
-    const [answers, setAnswers] = useState([false, false,false,false])
+    const [answers, setAnswers] = useState([0,0,0,0])
     useEffect(() => {
         if(!question){
             return;
@@ -24,7 +24,7 @@ export function MultipleChoiceEditorButton(props: MultipleChoiceEditorButtonProp
     return (
         <button className={"bg-primary_dark p-2 rounded-sm"}>
             <input value={options[props.optionIndex]} className={"bg-primary_mid rounded-md text-black placeholder-gray-700 mr-1"} onChange={props.onChange} placeholder={`Option ${props.optionIndex + 1}`}/>
-            <input checked={answers[props.optionIndex]} type={"checkbox"} onChange={props.onChecked}/>
+            <input checked={!!answers[props.optionIndex]} type={"checkbox"} onChange={props.onChecked}/>
         </button>
     );
 }

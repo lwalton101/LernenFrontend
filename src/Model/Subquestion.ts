@@ -9,8 +9,8 @@ export interface Subquestion {
     option2: string;
     option3: string;
     option4: string;
-    answer1: boolean;
-    answer2: boolean;
-    answer3: boolean;
-    answer4: boolean;
+    answer1: number;
+    answer2: number;
+    answer3: number;
+    answer4: number;
 }
