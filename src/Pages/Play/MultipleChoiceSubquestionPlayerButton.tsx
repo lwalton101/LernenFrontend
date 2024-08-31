@@ -1,4 +1,4 @@
-import {ChangeEvent, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {useQuestion} from "../../context/QuestionContext.tsx";
 import {useResult} from "../../context/ResultContext.tsx";
 
@@ -11,7 +11,6 @@ export function MultipleChoiceSubquestionPlayerButton(props: MultipleChoiceSubqu
     const { question } = useQuestion();
     const { results, setResults } = useResult();
     const [options, setOptions] = useState(["","","",""])
-    const [answers, setAnswers] = useState([false, false,false,false])
     const [active, setActive] = useState(false);
 
     useEffect(() => {
@@ -20,7 +19,6 @@ export function MultipleChoiceSubquestionPlayerButton(props: MultipleChoiceSubqu
         }
         const subquestion = question.subquestions[props.subquestion_id];
         setOptions([subquestion.option1, subquestion.option2, subquestion.option3, subquestion.option4]);
-        setAnswers([subquestion.answer1, subquestion.answer2, subquestion.answer3, subquestion.answer4]);
     }, [question]);
 
     function onButtonPress() {

@@ -2,7 +2,7 @@ import {useQuestion} from "../context/QuestionContext.tsx";
 import {TextSubquestionPlayer} from "./Play/TextSubquestionPlayer.tsx";
 import {AudioSubquestionPlayer} from "./Play/AudioSubquestionPlayer.tsx";
 import {MultipleChoiceSubquestionPlayer} from "./Play/MultipleChoiceSubquestionPlayer.tsx";
-import {ResultProvider, useResult} from "../context/ResultContext.tsx";
+import {ResultProvider} from "../context/ResultContext.tsx";
 import {SubmitResultButton} from "./Play/SubmitResultButton.tsx";
 import axiosInstance from "../axiosInstance.ts";
 import {useNavigate} from "react-router-dom";
@@ -13,7 +13,7 @@ interface PlaySectionProps {
 }
 
 export function PlaySection(props: PlaySectionProps) {
-    const { question, setQuestion } = useQuestion();
+    const { question } = useQuestion();
     const navigator = useNavigate();
 
     useEffect(() => {
@@ -36,7 +36,7 @@ export function PlaySection(props: PlaySectionProps) {
                 {question?.subquestions.map((subquestion) => (
                     <div key={subquestion.subquestion_id} className={"w-full mt-3 mb-1"}>
                         {subquestion.type == 0 ? (<TextSubquestionPlayer subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : (<></>)}
-                        {subquestion.type == 1 ? (<AudioSubquestionPlayer subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : (<></>)}
+                        {subquestion.type == 1 ? (<AudioSubquestionPlayer/>) : (<></>)}
                         {subquestion.type == 2 ? (<MultipleChoiceSubquestionPlayer subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : (<></>)}
                     </div>
                 ))}

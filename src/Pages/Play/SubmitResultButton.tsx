@@ -1,8 +1,6 @@
 import {useResult} from "../../context/ResultContext.tsx";
 import {useQuestion} from "../../context/QuestionContext.tsx";
-import {c} from "vite/dist/node/types.d-aGj9QkWt";
 import {SubquestionResult} from "../../Model/SubquestionResult.ts";
-import axios from "axios";
 import axiosInstance from "../../axiosInstance.ts";
 import {useNavigate} from "react-router-dom";
 

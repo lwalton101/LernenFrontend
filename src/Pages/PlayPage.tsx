@@ -1,7 +1,5 @@
 import {QuestionProvider} from "../context/QuestionContext.tsx";
 import {Navbar} from "../Navbar.tsx";
-import {MainInfoEditor} from "./MainInfoEditor.tsx";
-import {SubquestionEditor} from "./SubquestionEditor.tsx";
 import {useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {PlaySection} from "./PlaySection.tsx";

@@ -1,6 +1,5 @@
-import {ChangeEvent, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {useQuestion} from "../../context/QuestionContext.tsx";
-import {useResult} from "../../context/ResultContext.tsx";
 
 interface MultipleChoiceSubquestionPlayerButtonProps {
     subquestion_id: number;

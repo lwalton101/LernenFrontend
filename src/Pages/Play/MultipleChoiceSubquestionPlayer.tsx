@@ -1,6 +1,3 @@
-import {useQuestion} from "../../context/QuestionContext.tsx";
-import {ChangeEvent} from "react";
-import {MultipleChoiceEditorButton} from "../Subquestion/MultipleChoiceEditorButton.tsx";
 import {MultipleChoiceSubquestionPlayerButton} from "./MultipleChoiceSubquestionPlayerButton.tsx";
 
 interface MultipleChoicePlayerProps {
@@ -8,7 +5,6 @@ interface MultipleChoicePlayerProps {
 }
 
 export function MultipleChoiceSubquestionPlayer(props: MultipleChoicePlayerProps) {
-    const { question, setQuestion } = useQuestion();
     return (
         <div className={"flex flex-col items-center justify-center mt-4 mb-4"}>
             <div className={"grid grid-cols-2 grid-rows-2 gap-2 w-2/3 mb-2"}>
