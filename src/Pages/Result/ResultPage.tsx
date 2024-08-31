@@ -4,10 +4,14 @@ import {useEffect, useState} from "react";
 import {QuestionProvider} from "../../context/QuestionContext.tsx";
 import {ResultSection} from "./ResultSection.tsx";
 import {RatingBox} from "../Rating/RatingBox.tsx";
+import axiosInstance from "../../axiosInstance.ts";
 
 export function ResultPage() {
     const [searchParams, _] = useSearchParams();
     const [id, setId] = useState("");
+    const [difficulty, setDifficulty] = useState(0);
+    const [readability, setReadability] = useState(0);
+    const [resultStatus, setResultStatus] = useState("");
     useEffect(() => {
         const id = searchParams.get("id");
         if(!id){
@@ -27,15 +31,25 @@ export function ResultPage() {
                         <p>Rating</p>
                         <div className={"flex gap-2 m-2"}>
                             <p>Difficulty:</p>
-                            <RatingBox onRatingSelect={(rating) => console.log(rating)}></RatingBox>
+                            <RatingBox onRatingSelect={(rating) => setDifficulty(rating)}></RatingBox>
                         </div>
 
                         <div className={"flex gap-2 m-2"}>
                             <p>Readability:</p>
-                            <RatingBox onRatingSelect={(rating) => console.log(rating)}></RatingBox>
+                            <RatingBox onRatingSelect={(rating) => setReadability(rating)}></RatingBox>
                         </div>
 
-                        <button className={"bg-primary_dark rounded-full m-1 text-white p-2 mb-3 w-5/6 "}>Submit Rating</button>
+                        <button className={"bg-primary_dark rounded-full m-1 text-white p-2 mb-3 w-5/6 "} onClick={async () => {
+                            const response = await axiosInstance.post("/rating/", {
+                                question_id: id,
+                                readability: readability,
+                                difficulty: difficulty
+                            });
+
+                            setResultStatus(response.data.message)
+                        }}>Submit Rating</button>
+
+                        {resultStatus ? (<p className={"mb-2"}>{resultStatus}</p>) : (<></>)}
                     </div>
                 </QuestionProvider>
             </div>
