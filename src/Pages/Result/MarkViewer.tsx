@@ -11,7 +11,6 @@ export function MarkViewer(props: MarkViewerProps) {
     const [totalMarks, setTotalMarks] = useState(-1);
 
     useEffect(() => {
-        alert(props.subquestion.subquestion_id);
         axiosInstance.get(`/result/${props.subquestion?.subquestion_id}/get`).then(r => {
             setMarks(r.data.subquestion.marks)
             setTotalMarks(props.subquestion.answer1 + props.subquestion.answer2 + props.subquestion.answer3 + props.subquestion.answer4)
