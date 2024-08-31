@@ -18,7 +18,8 @@ export function ResultSection(props: ResultSectionProps) {
         if(!question){
             return;
         }
-        axiosInstance.get(`/result/${question?.question_id}/get`).catch(() => navigator(`/play?id=${question?.question_id}`))
+        const firstMultipleChoice = question.subquestions.find((s) => s.type == 2);
+        axiosInstance.get(`/result/${firstMultipleChoice?.subquestion_id}/get`).catch(() => navigator(`/play?id=${question?.question_id}`))
     }, [question]);
     return (
         <div className={props.className}>

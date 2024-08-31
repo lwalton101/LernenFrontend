@@ -20,12 +20,8 @@ export function PlaySection(props: PlaySectionProps) {
         if(!question){
             return;
         }
-        axiosInstance.get(`/result/${question.question_id}/get`).then(r => {
-            if(r.status !== 200){
-                return;
-            }
-            navigator(`/result?id=${question.question_id}`)
-        });
+        const firstMultipleChoice = question.subquestions.find((s) => s.type == 2);
+        axiosInstance.get(`/result/${firstMultipleChoice?.subquestion_id}/get`).then(() => navigator(`/result?id=${question.question_id}`));
     }, [question]);
 
 
