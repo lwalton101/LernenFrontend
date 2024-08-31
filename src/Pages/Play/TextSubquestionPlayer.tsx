@@ -1,6 +1,6 @@
 import {useQuestion} from "../../context/QuestionContext.tsx";
 
-class TextSubquestionPlayerProps {
+interface TextSubquestionPlayerProps {
     subquestion_id: number;
 }
 
