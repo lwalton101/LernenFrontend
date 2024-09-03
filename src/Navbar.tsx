@@ -39,7 +39,7 @@ export function Navbar() {
                     <div className={"justify-center items-center flex mr-2"}>
                         <p className={"text-center text-black"}>{user ? user.username : ""}</p>
                     </div>
-                    <NavbarItem title={"Profile"} path={"/profile"}></NavbarItem>
+                    <NavbarItem title={"Profile"} path={`/profile?id=${user?.user_id}`}></NavbarItem>
                 </div>
             </div>
 
