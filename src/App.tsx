@@ -12,6 +12,7 @@ import {BrowsePage} from "./Pages/BrowsePage.tsx";
 import {PlayPage} from "./Pages/PlayPage.tsx";
 import {ResultPage} from "./Pages/Result/ResultPage.tsx";
 import {SearchPage} from "./Pages/Search/SearchPage.tsx";
+import {ProfilePage} from "./Pages/Profile/ProfilePage.tsx";
 
 function App() {
 
@@ -66,6 +67,12 @@ function App() {
             path:"/search",
             element: <UserProvider>
                 <SearchPage />
+            </UserProvider>
+        },
+        {
+            path:"/profile",
+            element: <UserProvider>
+                <ProfilePage />
             </UserProvider>
         }
     ]);
