@@ -30,6 +30,9 @@ export function ProfilePicture(props: ProfilePictureProps) {
     }
 
     async function onFileUpload(e: ChangeEvent<HTMLInputElement>) {
+        if(!e.target.files){
+            return;
+        }
         if (e.target.files.length !== 1) {
             return;
         }
