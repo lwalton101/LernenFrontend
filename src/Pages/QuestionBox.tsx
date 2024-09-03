@@ -18,7 +18,7 @@ export function QuestionBox({question}: QuestionBoxProps) {
     useEffect(() => {
         axiosInstance.get(`/user/${question.user_id}`).then((r: AxiosResponse<User>) => setUploader(r.data)).catch((e) => console.log(e));
         axiosInstance.get(`/rating/${question.question_id}`).then((r: AxiosResponse<Rating>) => setRating(r.data)).catch((e) => console.log(e));
-    }, []);
+    }, [question.question_id]);
 
     return (
         <div className={"bg-primary flex flex-col items-center m-4 rounded-xl w-[300px] h-[400px]"}>

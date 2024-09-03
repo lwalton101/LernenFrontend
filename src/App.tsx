@@ -11,6 +11,7 @@ import {EditPage} from "./Pages/EditPage.tsx";
 import {BrowsePage} from "./Pages/BrowsePage.tsx";
 import {PlayPage} from "./Pages/PlayPage.tsx";
 import {ResultPage} from "./Pages/Result/ResultPage.tsx";
+import {SearchPage} from "./Pages/Search/SearchPage.tsx";
 
 function App() {
 
@@ -59,6 +60,12 @@ function App() {
             path:"/result",
             element: <UserProvider>
                 <ResultPage />
+            </UserProvider>
+        },
+        {
+            path:"/search",
+            element: <UserProvider>
+                <SearchPage />
             </UserProvider>
         }
     ]);
