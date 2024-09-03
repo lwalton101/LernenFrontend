@@ -3,7 +3,6 @@ import {useEffect, useState} from "react";
 import axiosInstance from "../axiosInstance.ts";
 import {AxiosResponse} from "axios";
 import {User} from "../Model/User.ts";
-import defaultPFP from "../assets/default_pfp.png"
 import {useNavigate} from "react-router-dom";
 import {Rating} from "../Model/Rating.ts";
 import {ProfilePicture} from "./ProfilePicture.tsx";
@@ -27,7 +26,7 @@ export function QuestionBox({question}: QuestionBoxProps) {
                 <p className={"text-3xl text-center"}>{question.title}</p>
                 <hr className="border-t-4 border-secondary w-11/12 my-2"/>
                 <div className={"flex flex-row-reverse items-center"}>
-                    {uploader && <ProfilePicture user={uploader} pfpClassName={"w-10"} outerDivClassName={""}></ProfilePicture>}
+                    {uploader && <ProfilePicture user={uploader} pfpClassName={""} outerDivClassName={"w-10"}></ProfilePicture>}
                     <p className={"m-2"}>Author: {uploader?.username}</p>
                 </div>
                 <p className={"m-1"}>Subquestions: {question.subquestions.length}</p>
