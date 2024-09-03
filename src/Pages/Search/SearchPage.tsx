@@ -32,10 +32,6 @@ export function SearchPage() {
         }).then((r) => setSearchResult(r.data)).catch(() => console.log("Error trying to get search results"));
     }, [searchQuery, user, question, minDifficulty, maxDifficulty, minReadability, maxReadability]);
 
-    function handleRangeChange() {
-
-    }
-
     return (
         <>
             <div className={"flex flex-col h-screen"}>
