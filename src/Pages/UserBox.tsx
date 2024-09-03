@@ -1,7 +1,7 @@
 import {getDate} from "../Model/Question.ts";
 import {User} from "../Model/User.ts";
-import defaultPFP from "../assets/default_pfp.png"
 import {useNavigate} from "react-router-dom";
+import {ProfilePicture} from "./ProfilePicture.tsx";
 
 interface UserBoxProps {
     user: User;
@@ -16,8 +16,7 @@ export function UserBox({user}: UserBoxProps) {
 
                 <p className={"text-3xl text-center"}>{user.username}</p>
                 <div className={"flex flex-row-reverse items-center"}>
-                    {user.profile_pic ? (<></>) : (
-                        <img src={defaultPFP} alt={"The default profile picture"} className={"h-10"}></img>)}
+                    <ProfilePicture user={user} outerDivClassName={"w-20"}/>
                 </div>
                 <p className={"m-1"}>Creation Date: {getDate(user.account_creation_date as string)}</p>
             </div>
