@@ -1,11 +1,7 @@
-import {getDate, Question} from "../Model/Question.ts";
-import {useEffect, useState} from "react";
-import axiosInstance from "../axiosInstance.ts";
-import {AxiosResponse} from "axios";
+import {getDate} from "../Model/Question.ts";
 import {User} from "../Model/User.ts";
 import defaultPFP from "../assets/default_pfp.png"
 import {useNavigate} from "react-router-dom";
-import {Rating} from "../Model/Rating.ts";
 
 interface UserBoxProps {
     user: User;
