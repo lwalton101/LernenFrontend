@@ -30,22 +30,27 @@ export function ProfilePicture(props: ProfilePictureProps) {
     }
 
     async function onFileUpload(e: ChangeEvent<HTMLInputElement>) {
-        if(!e.target.files){
-            return;
-        }
-        if (e.target.files.length !== 1) {
+        const file = e.target.files?.item(0);
+
+        if (!file) {
+            // If no file is selected, exit the function.
             return;
         }
 
-        var fd = new FormData();
-        console.log(e.target.files.item(0))
-        fd.append("pfp", e.target.files.item(0));
+        const fd = new FormData();
+        console.log(file); // Log the file to the console for debugging purposes
+        fd.append("pfp", file);
 
-        await axiosInstance.post("/user/update/pfp", fd, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            }
-        });
+        try {
+            await axiosInstance.post("/user/update/pfp", fd, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+            });
+        } catch (error) {
+            // Handle the error appropriately
+            console.error('Error uploading file:', error);
+        }
     }
 
     return (
