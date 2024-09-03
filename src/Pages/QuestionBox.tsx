@@ -6,6 +6,7 @@ import {User} from "../Model/User.ts";
 import defaultPFP from "../assets/default_pfp.png"
 import {useNavigate} from "react-router-dom";
 import {Rating} from "../Model/Rating.ts";
+import {ProfilePicture} from "./ProfilePicture.tsx";
 
 interface QuestionBoxProps {
     question: Question;
@@ -26,8 +27,7 @@ export function QuestionBox({question}: QuestionBoxProps) {
                 <p className={"text-3xl text-center"}>{question.title}</p>
                 <hr className="border-t-4 border-secondary w-11/12 my-2"/>
                 <div className={"flex flex-row-reverse items-center"}>
-                    {uploader?.profile_pic ? (<></>) : (
-                        <img src={defaultPFP} alt={"The default profile picture"} className={"h-10"}></img>)}
+                    {uploader && <ProfilePicture user={uploader} pfpClassName={"w-10"} outerDivClassName={""}></ProfilePicture>}
                     <p className={"m-2"}>Author: {uploader?.username}</p>
                 </div>
                 <p className={"m-1"}>Subquestions: {question.subquestions.length}</p>

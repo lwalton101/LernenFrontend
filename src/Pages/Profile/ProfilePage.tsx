@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 import {User} from "../../Model/User.ts";
 import axiosInstance from "../../axiosInstance.ts";
 import {Question} from "../../Model/Question.ts";
-import defaultPFP from "../../assets/default_pfp.png";
+import {ProfilePicture} from "../ProfilePicture.tsx";
 
 export function ProfilePage() {
     const [searchParams, _] = useSearchParams();
@@ -24,8 +24,7 @@ export function ProfilePage() {
                 <div className={"flex-1 flex flex-col justify-center"}>
                     <div className={"flex justify-center m-5 mb-2"}>
                         <div className={"flex items-center"}>
-                            {user?.profile_pic ? (<></>) : (
-                                <img src={defaultPFP} alt={"The default profile picture"} className={"h-14"}></img>)}
+                            {user && <ProfilePicture user={user}></ProfilePicture>}
                             <p className={"m-2 text-5xl"}>{user?.username}</p>
                         </div>
                     </div>
