@@ -9,10 +9,13 @@ import {ProfilePicture} from "../ProfilePicture.tsx";
 
 export function ProfilePage() {
     const [searchParams, _] = useSearchParams();
-    const [id, setId] = useState("");
+    const [id, setId] = useState<string | null>("");
     const [user, setUser] = useState<User>();
     const [questions, setQuestions] = useState<Question[]>();
     useEffect(() => {
+        if(!searchParams.get("id")){
+            return;
+        }
         setId(searchParams.get("id"));
         axiosInstance.get<User>(`/user/${searchParams.get("id")}`).then((r) => setUser(r.data)).catch(() => console.log("Error trying to get user"));
         axiosInstance.get<Question[]>(`/question/user/${searchParams.get("id")}`).then((r) => setQuestions(r.data)).catch(() => "Error getting user data");
