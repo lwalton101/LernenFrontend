@@ -16,8 +16,10 @@ export default {
       padding:{
         "15px": "15px",
         "10px": "10px"
+      },
+      inset: {
+        '2/12': '16.666667%'
       }
-
     },
   },
   plugins: [],
