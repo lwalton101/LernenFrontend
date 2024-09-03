@@ -24,7 +24,7 @@ export function ProfilePage() {
                 <div className={"flex-1 flex flex-col justify-center"}>
                     <div className={"flex justify-center m-5 mb-2"}>
                         <div className={"flex items-center"}>
-                            {user && <ProfilePicture user={user}></ProfilePicture>}
+                            {user && <ProfilePicture user={user} outerDivClassName={"w-14"} uploadEnabled={id == user.user_id}></ProfilePicture>}
                             <p className={"m-2 text-5xl"}>{user?.username}</p>
                         </div>
                     </div>
