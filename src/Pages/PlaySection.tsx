@@ -32,7 +32,7 @@ export function PlaySection(props: PlaySectionProps) {
                 {question?.subquestions.map((subquestion) => (
                     <div key={subquestion.subquestion_id} className={"w-full mt-3 mb-1"}>
                         {subquestion.type == 0 ? (<TextSubquestionPlayer subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : (<></>)}
-                        {subquestion.type == 1 ? (<AudioSubquestionPlayer/>) : (<></>)}
+                        {subquestion.type == 1 ? (<AudioSubquestionPlayer subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : (<></>)}
                         {subquestion.type == 2 ? (<MultipleChoiceSubquestionPlayer subquestion_id={"subquestions" in question ? question.subquestions.indexOf(subquestion) :-1}/>) : (<></>)}
                     </div>
                 ))}
