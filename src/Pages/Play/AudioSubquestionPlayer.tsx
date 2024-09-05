@@ -20,7 +20,7 @@ export function AudioSubquestionPlayer(props: AudioSubquestionPlayerProps) {
             return;
         }
 
-        setAudioPath(question.subquestions[props.subquestion_id].audio_file_path)
+        setAudioPath(question.subquestions[props.subquestion_id].audio_file_path as string)
     }, [question]);
     return (
         <div className={"flex justify-center"}>
